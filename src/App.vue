@@ -5,7 +5,8 @@
     <button @click="addTask">Tambah</button>
     <ul>
       <li v-for="(task, index) in tasks" :key="index">
-        {{ task.name }}
+        <input type="checkbox" v-model="task.completed" />
+        <span>{{ task.name }}</span>
         <button @click="deleteTask(index)">Hapus</button>
       </li>
     </ul>

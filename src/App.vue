@@ -6,6 +6,7 @@
     <ul>
       <li v-for="(task, index) in tasks" :key="index">
         {{ task.name }}
+        <button @click="deleteTask(index)">Hapus</button>
       </li>
     </ul>
   </div>
@@ -26,4 +27,8 @@ function addTask() {
     newTask.value = ''
   }
 }
+function deleteTask(index) {
+  tasks.value.splice(index, 1)
+}
+
 </script>

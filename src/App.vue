@@ -6,7 +6,9 @@
     <ul>
       <li v-for="(task, index) in tasks" :key="index">
         <input type="checkbox" v-model="task.completed" />
-        <span>{{ task.name }}</span>
+        <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">
+  {{ task.name }}
+</span>
         <button @click="deleteTask(index)">Hapus</button>
       </li>
     </ul>

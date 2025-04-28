@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>daily routine</h1>
+    <input v-model="newTask" placeholder="Tambah kegiatan baru" @keyup.enter="addTask" />
+    <button @click="addTask">Tambah</button>
     <ul>
       <li v-for="(task, index) in tasks" :key="index">
         {{ task.name }}
@@ -16,4 +18,12 @@ const tasks = ref([
   { name: 'kerjakan tugas pbk', completed: false },
   { name: 'olahraga', completed: false }
 ])
+const newTask = ref('')
+
+function addTask() {
+  if (newTask.value.trim() !== '') {
+    tasks.value.push({ name: newTask.value, completed: false })
+    newTask.value = ''
+  }
+}
 </script>
